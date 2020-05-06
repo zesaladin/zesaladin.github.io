@@ -1,0 +1,137 @@
+body { margin: 0;
+  font-family: 'Cardo', sans-serif;
+background-color: #81a681;
+}
+h1{
+  margin-top: 0px;
+  padding: 5px;
+  margin-bottom: 0px;
+  text-align: center;
+  font-size: 40px;
+  color: black;
+}
+h2 {
+  text-align: center;
+  /* font-size: 80%; */
+  padding-bottom: 0px;
+  margin: auto;
+}
+.hidden {
+  position: sticky;
+  left: 20%;
+  top: 20%;
+}
+
+#logo {
+  position: fixed;
+  top: 2%;
+  right: 0;
+  bottom: 0;
+  left: 93%;
+  height: 21px;
+  cursor:url('feather.png'),auto;
+}
+
+#logo2 {
+  position: fixed;
+  top: 2%;
+  right: 0;
+  bottom: 0;
+  left: 3%;
+  height: 21px;
+  cursor:url('feather.png'),auto;
+}
+
+#main {
+  background-image: url("webback.jpg");
+  position: relative;
+  background-size: contain;
+  background-repeat: repeat-x;
+  background-color: #677154;
+  /* width: 90%; */
+  width: 100vw;
+  height: 95vh;
+  border-style: solid;
+  border-width: 3px;
+  margin: auto;
+  position: relative;
+}
+
+
+#footer {
+  border-style: solid;
+  border-color: purple;
+  width: 100vw;
+  border-width: 3px;
+  text-align: center;
+}
+
+.wrap {
+  margin: 15px;
+
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+  text-align: left;
+  height: 100vh;
+  /* border-style: dashed; */
+  border-color: white;
+  border-radius: .1px;
+  text-indent: -1.5em;
+  padding: 1.8em;
+  margin-bottom: 4%;
+  /* hanging-punctuation: first; */
+}
+
+.blue-column {
+  height: 100px;
+  padding-bottom: 5%;
+}
+
+.green-column {
+
+  height: 100px;
+  padding-bottom: 5%;
+}
+
+/* @media only screen and (max-width: 500px) {
+  #main {
+    height:100vw;
+    width: 100vw;
+  }
+} */
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+a:link {
+    color: maroon;
+    text-decoration: none;}
+/* visited link */
+a:visited {
+    color: maroon;
+    text-decoration: none;}
+/* mouse over link */
+a:hover {
+    color: pink;
+    text-decoration: none;
+  cursor:url('feather.png'),auto;}
+
+/* selected link */
+a:active {
+    color: pink;
+    text-decoration: none;}
+iframe {align:middle;}

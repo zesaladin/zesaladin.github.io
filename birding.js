@@ -85,7 +85,7 @@ var moveR=0;
      $("#Steph").css("transform", "scale("+size+")");
 
      wid3+=5;
-     high3+=3;
+     high3+=4;
      if (wid3 > 30) {
     wid3=0;
     high3=0;
