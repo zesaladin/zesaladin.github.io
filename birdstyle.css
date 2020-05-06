@@ -172,7 +172,7 @@ cursor:url('feather.png'),auto;
   overflow: scroll;
   background: #9bbd9b;
   transition: width 1s, height 1s;
-  right: 60px;
+  right: 80px;
   top: 480px;
   opacity: .95;
 }
