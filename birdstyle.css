@@ -347,10 +347,18 @@ cursor:url('feather.png'),auto;
   padding-bottom: 5%;
 }
 
+
+@media only screen
+  and (min-width: 375px)
+  and (max-width: 667px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+#video {
+  opacity: .75;
+}
+}
 /* @media only screen and (max-width: 500px) {
-  #main {
-    height:100vw;
-    width: 100vw;
+  #video {
+    opacity: .5
   }
 } */
 
