@@ -11,7 +11,9 @@ color: #3D5B59;
 font-size: 200%}
 h2 {size: 18; text-align: center;}
 h3 { text-align: center;}
-p {color: #996E4E; }
+p {color: #996E4E;
+margin-left: 10%;
+margin-right: 10%;}
 img {display: block;
   margin-left: auto;
   margin-right: auto;}
@@ -22,11 +24,11 @@ li {list-style-type: none;
   float: left;
   width: 25%}
 a:link {
-    color: blue;
+    color: maroon;
     text-decoration: none;}
 /* visited link */
 a:visited {
-    color: blue;
+    color: maroon;
     text-decoration: none;}
 /* mouse over link */
 a:hover {
@@ -64,33 +66,14 @@ width: 100px;
 }
 
 
-#WeeklyAssign
-p { text-align: center;
-color: maroon}
-a:link {
-    color: maroon;
-    text-decoration: none;}
-/* visited link */
-a:visited {
-    color: maroon;
-    text-decoration: none;}
-/* mouse over link */
-a:hover {
-    color: pink;
-    text-decoration: none;}
-/* selected link */
-a:active {
-    color: green;
-    text-decoration: none;}
 
-#Projects
-p {
+#Projects p {
   font-size: 150%;
   text-align: center;
 color: maroon;
 float: center;
 }
-h2 {
+#Projects h2 {
   color:blue;
 }
 
@@ -121,4 +104,9 @@ a.taters {
 }
 #myImage a span {
   display:none;
+}
+
+.centerIMG
+{  align-items: center;
+
 }
