@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Street Racer Hard</title>
+    <script  src="js/simTime.js"></script>
+    <link rel="stylesheet" href="street.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC|Source+Sans+Pro" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Monoton|Orbitron|Press+Start+2P" rel="stylesheet">
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <h1 class="central"> Street Racer <img src="runningman.gif" style="width:60px; height:60px;" alt="logo"/> </h1>
+<div id="Levels" >
+        <ul class="nav">
+        <li><a style="background-color:purple; background-image: radial-gradient(#BD3039,#0C2340 10%,#BD3039);" href="streetest.html">Fenway </a> </li>
+        <li> <a style="background-color:orange;  color: orange; background-image: radial-gradient(red,orange,yellow,green,blue,indigo,violet);" href="#">Here </a> </li> </div>
+    <div id="Levels2" >
+        <ul class="nav">
+        <li><a style="background-color:green" href="locationtest.html">Easy </a> </li>
+        <li> <a style="background-color:blue" href="locationMed.html">Medium </a> </li>
+        <li> <a style="background-color:red; color: orange;" href="#">Hard </a> </li> </div>
+
+    <div style="color:white; font-family:'arial'; font-size:30px;" id="timer"></div>
+    <div id="instructions" > <a href="howto.html" target="_blank"> How To Play </a> </div>
+    <div id=distances> <p id="distance2" >  </p>
+    <p id="distance"> </p>
+    <p id="distance3"></p> </div>
+    <div id="map" class="center"> <br></div>
+    <div id="pano" class="center"></div>
+  </div>
+    <div class="final">
+      <div class="restart">
+      <a href="locationHard.html" >  <p id="restart">Restart</p> </a>
+      <p class="score">this is not going to show</p>
+      </div>
+    </div>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6bLUyjuWyXjLsCunOw__azLoT3nrGclQ&callback=initialize"></script>
+
+    <script>
+    var distanceTraveled = 0;
+    var start = 0;
+
+    if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            initialize(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+
+
+      function initialize(CurrentPos) {
+        var fenway = CurrentPos;
+        var MyLtLng = {lat: 0, lng: 0};
+        MyLtLng.lat = fenway.lat;
+        MyLtLng.lng = fenway.lng;
+        MyLtLng.lat += (Math.random()-.5)*.05;
+        MyLtLng.lng += (Math.random()-.5)*.05;
+        start = MyLtLng;
+        $("#distance").html("You started: " + getDistance(fenway, MyLtLng) + " meters away.");
+        console.log(getDistance(fenway, MyLtLng));
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: MyLtLng,
+          zoom: 14,
+          streetViewControl: false,
+          streetViewControlOptions: {
+             position: google.maps.ControlPosition.LEFT_TOP
+         },
+        });
+
+
+//         var marker = new google.maps.Marker({
+//   position: MyLtLng,
+//   map: map,
+//   title: 'Hello World!'
+// });
+
+var marker = new google.maps.Marker({
+position: fenway,
+map: map,
+title: 'ehhhh',
+
+});
+
+var contentString = '<div id="content">'+
+          '<div id="siteNotice">'+
+          '</div>'+
+          '<h2 id="firstHeading" class="firstHeading" style="text-align:center">Your Location</h2>'+
+          '</div>';
+
+      var infowindow = new google.maps.InfoWindow({
+        content: contentString
+      });
+
+      var marker = new google.maps.Marker({
+        position: fenway,
+        map: map,
+        title: 'Fenway Park'
+      });
+      marker.addListener('click', function() {
+        infowindow.open(map, marker);
+      });
+
+https://maps.googleapis.com/maps/api/distancematrix/json?origins=MyLtLng&destinations=fenway&departure_time=now&key=AIzaSyC6bLUyjuWyXjLsCunOw__azLoT3nrGclQ
+
+  // var contentString2 = '<div id="content2">'+
+  //               '<div id="siteNotice2">'+
+  //               '</div>'+
+  //               '<h2 id="firstHeading" class="firstHeading">Starting Point</h2>'+
+  //               '<div id="bodyContent2">'+
+  //               '<p>hey</p>'+
+  //               '</div>'+
+  //               '</div>';
+  //
+  //           var infowindow2 = new google.maps.InfoWindow({
+  //             content: contentString2
+  //           });
+  //
+  //           var marker2 = new google.maps.Marker({
+  //             position: MyLtLng,
+  //             map: map,
+  //             title: 'Here'
+  //           });
+  //
+  //           marker2.addListener('click', function() {
+  //             infowindow2.open(map, marker2);
+  //           });
+
+// computeDistanceBetween(fenway, MyLtLng);
+
+
+        var panorama = new google.maps.StreetViewPanorama(
+            document.getElementById('pano'), {
+              position: MyLtLng,
+              pov: {
+                heading: 34,
+                pitch: 10
+              }
+            });
+            panorama.addListener('position_changed', function(){
+
+              console.log(panorama.getPosition().lat());
+              console.log(panorama.getPosition().lng());
+        var current = {lat: panorama.getPosition().lat(), lng: panorama.getPosition().lng()};
+        var distanceFrom = Math.floor(getDistance(fenway, current));
+        $("#distance2").html("You are: " + distanceFrom + " meters" + " away!");
+        $("#distance3").html("You travelled: " + Math.floor(getDistance(start, current)) + " meters.");
+        distanceTraveled = Math.floor(getDistance(start, current));
+            if(distanceFrom < 150){
+              StopTimer();
+
+            }
+            });
+
+            var url = "https://maps.googleapis.com/maps/api/streetview/metadata?location=" + MyLtLng.lat + "%2C" +MyLtLng.lng +  "&key=AIzaSyC6bLUyjuWyXjLsCunOw__azLoT3nrGclQ";
+
+            $.ajax({url: url, success: function(result){
+              console.log(result);
+              if (result.status=="ZERO_RESULTS") {
+                initialize();
+              } else{
+                startTimer();
+              }
+            }});
+
+            if (true) {
+
+            }
+        map.setStreetView(panorama);
+      };
+      var mapOptions = {
+                   streetViewControl: false,  //don't show the  pegman
+               };
+               var rad = function(x) {
+                 return x * Math.PI / 180;
+               };
+
+               var getDistance = function(p1, p2) {
+                var R = 6378137; // Earth’s mean radius in meter
+                var dLat = rad(p2.lat - p1.lat);
+                var dLong = rad(p2.lng - p1.lng);
+                var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                  Math.cos(rad(p1.lat)) * Math.cos(rad(p2.lat)) *
+                  Math.sin(dLong / 2) * Math.sin(dLong / 2);
+                var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+                var d = R * c;
+                return Math.floor(d); // returns the distance in meter
+              };
+
+
+
+    </script>
+
+
+  </body>
+</html>

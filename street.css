@@ -1,0 +1,297 @@
+@font-face {
+font-family: "Orena";
+src: url("qbotype-fonts_orena");
+}
+
+
+/* font-family: 'Bungee', cursive;
+font-family: 'Orbitron', sans-serif;
+font-family: 'Monoton', cursive;
+font-family: 'Press Start 2P', cursive; */
+
+body {
+  margin: 0;
+  padding:0;
+}
+
+
+
+#timer {
+position: relative;
+height: 10%;
+width: 5%;
+margin-left: 30px;
+margin-top: 10px;
+padding-top: 5px;
+font-style: italic;
+font-family: 'Press Start 2P', cursive;
+}
+
+#instructions {
+position: relative;
+float: right;
+  height: 5%;
+  width: 15%;
+  margin-left: 80%;
+  margin-top: 10px;
+  font-style: italic;
+  font-family: 'Orbitron', sans-serif;
+  style="color:white;
+   font-size:14px;
+  }
+
+#distances {
+  position: absolute;
+  margin-left: 50%;
+  width: 20%;
+  margin-top: 140px;
+  z-index: 20;
+  font-size: 12px;
+  border: 1px solid green;
+  background-color: black;
+  opacity: 70%;
+  text-align: center;
+
+}
+
+#map {
+  float: left;
+  height: 75%;
+  width: 27%;
+}
+
+#pano {
+  float: left;
+  height: 75%;
+  width: 70%;
+}
+.center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+  }
+
+  .central {align-items: center;
+  }
+
+
+h1 {
+  color: white;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  margin-bottom: -2%;
+  margin-top: 0%;
+  font-size: 60px;
+  padding-bottom: -20%;
+  letter-spacing: 5px;
+}
+
+h2 {
+  color: blue;
+  align-items: center;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+}
+
+html {
+  background: black;
+}
+
+p {
+  font-family: 'arial';
+  color: white;
+  border: 10px;
+}
+.score {
+  font-size: 35px;
+  text-align: center;
+  align-items: center;
+  border-style: solid;
+  display: inline-block;
+  border-width: 2px;
+  text-align: center;
+  margin-left: 30%;
+  padding: 10px;
+  float: left;
+  font-family: 'Press Start 2P', cursive;
+}
+.final {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 120vh;
+  background: red;
+  z-index: 100;
+  padding-top: 250px;
+  font-size: 50px;
+
+}
+
+
+#restart {
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;
+}
+#Levels {
+  float: left;
+  width: 100%;
+  height: 0 auto;
+  margin-left: -2%;
+  margin-bottom: -6%;
+  font-size: 30px;
+  text-decoration: none;
+}
+
+#Levels2 {
+  float: left;
+  width: 100%;
+  height: 0 auto;
+  margin-left: -2%;
+  margin-bottom: -3%;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.nav {
+  padding-top: -9%;
+  font-family: 'Press Start 2P', cursive;
+  letter-spacing: 2px;
+  list-style-type: none;
+  /* margin-left: 25%; */
+  overflow: hidden;
+   align-items: center;
+  text-align: center;
+  /* margin: 0 auto; */
+  display: flex;
+  justify-content: center;
+  margin-top: 0px;
+
+}
+
+.nav ul {
+  display: flex;
+  flex-flow: row;
+
+}
+
+.nav li {
+  float: left;
+  padding: 3%;
+  display: block;
+  text-align: center;
+
+}
+/* .button {
+    background-color: white;
+    border: none;
+    color: white;
+    padding: 4px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    border-radius: 5px;
+    -webkit-transition-duration: 0.4s;
+transition-duration: 0.4s;
+}
+
+.button:hover {
+    background-color: white;
+    color: white;
+} */
+.nav a {
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  background-color: black;
+  border: 10px;
+  padding-left:  15%;
+  padding-right: 15%;
+  border-radius: 6px;
+  padding-top: 9px;
+}
+
+main {
+	height: 50px;
+	position: absolute;
+	top: 148%;
+	left: 12%;
+	transform: translate(-50%,-50%);
+
+	time {
+		display: block;
+		width: 310px;
+		text-align: center;
+		color: white;
+		font-size: 4rem;
+		font-weight: 900;
+		text-align: center;
+	}
+
+	/* button {
+		padding: .5em 1.25em;
+		position: absolute;
+		bottom: 0;
+		color: white;
+		border: 1px solid white;
+		border-radius: .5em;
+		text-transform: uppercase;
+		font-size: 1.25rem;
+	} */
+
+	#toggle {right: 0}
+	#clear {
+		transition: all 300ms cubic-bezier(.4,.25,.3,1);
+		left: 0;
+		opacity: 0;
+		pointer-events: none;
+		&[data-state='visible'] {
+			opacity: 1;
+			pointer-events: auto;
+		}
+	}
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
