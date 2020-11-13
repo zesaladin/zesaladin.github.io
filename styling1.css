@@ -7,7 +7,7 @@ height: 120px;
 margin: 0px auto;
 margin-top: 0px}
 h1 { text-align:center;
-color: red;
+color: #3D5B59;
 font-size: 200%}
 h2 {size: 18; text-align: center;}
 h3 { text-align: center;}
@@ -102,7 +102,7 @@ color: maroon;
 float: center;
 }
 h2 {
-  color:maroon;
+  color:#B99095;
 }
 
 #myImage {
